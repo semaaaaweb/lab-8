@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Sevinch | Student field notes</title>
+
+<style>
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=Playfair+Display:ital,wght@0,600;1,600;1,700&family=JetBrains+Mono:wght@400;600&display=swap');
+
+
+:root{
+    --bg:#FAF9F6;
+    --text:#171717;
+    --blue:#2B59C3;
+    --green:#236B38;
+    --card:#ffffff;
+    --line:#ddd8ce;
+}
+
+
+.dark{
+    --bg:#101114;
+    --text:#f5f5f5;
+    --card:#18191d;
+    --line:#333;
+}
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+
+body{
+
+    background:var(--bg);
+    color:var(--text);
+    font-family:"Inter",sans-serif;
+    transition:.3s;
+
+}
+
+
+
+.container{
+
+    width:min(1150px,90%);
+    margin:auto;
+
+}
+
+
+
+/* NAVBAR */
+
+
+nav{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:25px 0;
+
+}
+
+
+
+.brand{
+
+display:flex;
+align-items:center;
+gap:12px;
+
+font-weight:700;
+font-size:22px;
+
+}
+
+
+.logo{
+
+width:45px;
+height:45px;
+
+background:var(--blue);
+color:white;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+border-radius:12px;
+
+font-family:"Playfair Display";
+font-size:28px;
+
+}
+
+
+
+.links{
+
+display:flex;
+gap:30px;
+align-items:center;
+
+}
+
+
+
+.links a{
+
+text-decoration:none;
+color:var(--text);
+font-size:15px;
+
+}
+
+
+
+.toggle{
+
+width:42px;
+height:42px;
+
+border-radius:50%;
+
+border:none;
+
+cursor:pointer;
+
+background:var(--card);
+
+box-shadow:0 5px 20px rgba(0,0,0,.12);
+
+font-size:18px;
+
+}
+
+
+
+/* HERO */
+
+
+.hero{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:60px;
+
+align-items:center;
+
+padding:80px 0;
+
+}
+
+
+
+.eyebrow{
+
+font-family:"JetBrains Mono";
+color:var(--blue);
+
+font-size:14px;
+letter-spacing:2px;
+
+}
+
+
+
+h1{
+
+font-family:"Playfair Display";
+
+font-size:72px;
+
+line-height:1.05;
+
+margin:20px 0;
+
+}
+
+
+
+h1 i{
+
+color:var(--blue);
+
+}
+
+
+
+.bio{
+
+font-size:20px;
+
+line-height:1.7;
+
+max-width:550px;
+
+}
+
+
+
+
+.cta{
+
+display:inline-block;
+
+margin-top:35px;
+
+padding:16px 32px;
+
+background:var(--green);
+
+color:white;
+
+border-radius:999px;
+
+text-decoration:none;
+
+font-weight:600;
+
+}
+
+
+
+
+/* BLUEPRINT */
+
+
+.blueprint{
+
+height:380px;
+
+background:
+
+linear-gradient(#dfe7f7 1px,transparent 1px),
+linear-gradient(90deg,#dfe7f7 1px,transparent 1px);
+
+background-size:30px 30px;
+
+border:1px solid #cdd8ef;
+
+position:relative;
+
+border-radius:20px;
+
+display:flex;
+
+align-items:center;
+justify-content:center;
+
+}
+
+
+
+.dark .blueprint{
+
+background:
+
+linear-gradient(#333 1px,transparent 1px),
+linear-gradient(90deg,#333 1px,transparent 1px);
+
+}
+
+
+
+.label{
+
+position:absolute;
+
+font-family:"JetBrains Mono";
+
+font-size:12px;
+
+color:var(--blue);
+
+}
+
+
+
+.top-left{
+top:20px;
+left:20px;
+}
+
+
+.top-right{
+top:20px;
+right:20px;
+}
+
+
+.bottom{
+
+bottom:20px;
+
+}
+
+
+
+.laptop{
+
+width:240px;
+
+height:150px;
+
+border:4px solid var(--blue);
+
+border-radius:10px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-family:"JetBrains Mono";
+
+font-size:40px;
+
+color:var(--blue);
+
+position:relative;
+
+}
+
+
+
+.laptop:after{
+
+content:"";
+
+position:absolute;
+
+bottom:-35px;
+
+width:270px;
+
+height:15px;
+
+background:var(--blue);
+
+border-radius:10px;
+
+}
+
+
+
+
+
+/* SECTIONS */
+
+
+section{
+
+padding:70px 0;
+
+}
+
+
+
+.title{
+
+font-family:"Playfair Display";
+
+font-size:45px;
+
+margin-bottom:30px;
+
+}
+
+
+
+.card{
+
+background:var(--card);
+
+border:1px solid var(--line);
+
+padding:35px;
+
+border-radius:20px;
+
+}
+
+
+
+.grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+
+gap:25px;
+
+}
+
+
+
+.course h3,
+.project h3{
+
+color:var(--blue);
+
+font-family:"Playfair Display";
+
+font-size:25px;
+
+margin-bottom:15px;
+
+}
+
+
+
+.tag{
+
+display:inline-block;
+
+padding:8px 15px;
+
+border-radius:20px;
+
+background:#e8efff;
+
+color:var(--blue);
+
+font-family:"JetBrains Mono";
+
+font-size:13px;
+
+margin-top:15px;
+
+}
+
+
+
+/* FOOTER */
+
+
+footer{
+
+padding:40px 0;
+
+text-align:center;
+
+font-family:"JetBrains Mono";
+
+}
+
+
+
+
+@media(max-width:850px){
+
+
+.hero{
+
+grid-template-columns:1fr;
+
+}
+
+
+h1{
+
+font-size:50px;
+
+}
+
+
+.links{
+
+display:none;
+
+}
+
+
+.blueprint{
+
+height:300px;
+
+}
+
+}
+
+
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+<nav>
+
+
+<div class="brand">
+
+<div class="logo">
+s.
+</div>
+
+Sevinch.
+
+</div>
+
+
+
+<div class="links">
+
+<a href="#about">About</a>
+<a href="#courses">Courses</a>
+<a href="#projects">Projects</a>
+<a href="#contact">Contact</a>
+
+
+<button class="toggle" onclick="theme()">
+🌙
+</button>
+
+
+</div>
+
+
+</nav>
+
+
+
+
+
+<section class="hero">
+
+
+<div>
+
+
+<div class="eyebrow">
+— STUDENT FIELD NOTES
+</div>
+
+
+<h1>
+Hi, I'm <i>Sevinch.</i>
+</h1>
+
+
+<p class="bio">
+
+I'm a first-year IT student at 
+<strong>Inha University in Tashkent.</strong>
+
+This is my notebook for the things I'm learning,
+building, and figuring out along the way.
+
+</p>
+
+
+
+<a class="cta" href="#projects">
+Explore my projects ↓
+</a>
+
+
+
+</div>
+
+
+
+
+
+<div class="blueprint">
+
+
+<div class="label top-left">
+FIG. 01
+</div>
+
+
+<div class="label top-right">
+COMPUTING
+</div>
+
+
+
+<div class="laptop">
+>_
+</div>
+
+
+
+<div class="label bottom">
+Personal workstation
+</div>
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+<section id="about">
+
+<h2 class="title">
+About
+</h2>
+
+
+<div class="card">
+
+I am a first-year Information Technology student
+exploring programming, computer systems,
+and creative ways technology can solve problems.
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<section id="courses">
+
+
+<h2 class="title">
+Courses
+</h2>
+
+
+<div class="grid">
+
+
+<div class="card course">
+
+<h3>
+Introduction to IT
+</h3>
+
+<p>
+Learning computer fundamentals,
+networks, and digital technologies.
+</p>
+
+</div>
+
+
+
+<div class="card course">
+
+<h3>
+Calculus
+</h3>
+
+<p>
+Developing mathematical thinking
+for engineering and technology.
+</p>
+
+</div>
+
+
+
+<div class="card course">
+
+<h3>
+English
+</h3>
+
+<p>
+Improving academic communication
+and professional writing.
+</p>
+
+</div>
+
+
+</div>
+
+</section>
+
+
+
+
+
+
+<section id="projects">
+
+
+<h2 class="title">
+Projects
+</h2>
+
+
+<div class="card project">
+
+
+<h3>
+Lab 8a — Network Detective
+</h3>
+
+
+<p>
+
+A collection of my investigation notes about
+computer networks, connections, and how data
+travels between systems.
+
+</p>
+
+
+<div class="tag">
+NETWORK ANALYSIS
+</div>
+
+
+<div class="tag">
+IT NOTES
+</div>
+
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<section id="contact">
+
+
+<h2 class="title">
+Contact
+</h2>
+
+
+<div class="card">
+
+<p>
+📍 Inha University in Tashkent
+</p>
+
+<p>
+✉ sevinch@example.com
+</p>
+
+
+</div>
+
+
+</section>
+
+
+
+
+</div>
+
+
+
+<footer>
+
+© 2026 Sevinch Madrimova · Student Field Notes
+
+</footer>
+
+
+
+
+<script>
+
+function theme(){
+
+document.body.classList.toggle("dark");
+
+}
+
+</script>
+
+
+
+</body>
+</html>
